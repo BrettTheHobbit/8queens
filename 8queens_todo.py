@@ -174,8 +174,13 @@ def replacement(current_pop, current_fitness, offspring, offspring_fitness):
 
     # student code begin
 
+    # Add all of the offspring
+    population.extend(offspring)
+    fitness.extend(offspring_fitness)
 
-    
+    # we need to add k more solutions
+    population.extend(sorted_pop[:k])
+    fitness.extend(sorted_fit[:k])
     # student code end
 
     return population, fitness
@@ -295,5 +300,5 @@ def main():
 # end of main
 
 if __name__ == "__main__":
-    print("CROSSFILL TIME OH YEAH - - " + str(permutation_cut_and_crossfill([1,3,5,4,2,7,8,6],[6,3,2,4,5,7,8,1]))) #- testing each func.
+    replacement([[1,2,3,4,5,6,7,8], [8,7,6,5,4,3,2,1]], [2, 3], [[1,2,3,4,8,7,6,5], [8,7,6,5,1,2,3,4]], [8,9])
     main()
